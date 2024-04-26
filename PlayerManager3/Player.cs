@@ -13,7 +13,14 @@ namespace PlayerManager3
             Score = score;
         }
 
+        public int CompareTo(Player play)
+        {
+            if (play == null) return 1; 
+            if (Score > play.Score) return 1;
+            else if (Score < play.Score) return -1;
+            else return 0;
 
+        }
 
 
     }
