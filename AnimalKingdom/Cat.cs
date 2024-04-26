@@ -8,5 +8,6 @@ namespace AnimalKingdom
         {
             return base.Sound() + "Miau";
         }
+       public int NumberOfNipples { get => 6; }
     }
 }
