@@ -50,10 +50,9 @@ namespace PlayerManager1
                         ListPlayers(playerList);
                         break;
                     case "3":
-                        
+                        ListPlayersWithScoreGreaterThan();
                         break;
-                    case "4":
-                        
+                    case "4":                 
                         break;
                     default:
                         Console.Error.WriteLine("\n>>> Unknown option! <<<\n");
@@ -91,6 +90,35 @@ namespace PlayerManager1
         }
 
 
-      
+        private void ListPlayersWithScoreGreaterThan()
+        {
+            
+            string score;
+
+            Console.WriteLine("Insert minimum score: ");
+            score =  Console.ReadLine();
+            int minScore = int.Parse(score);
+
+            foreach (Player player in GetPlayersWithScoreGreaterThan(minScore))
+            {
+                Console.WriteLine($"{player.Name} {player.Score}");
+            }
+        }
+
+
+        private IEnumerable<Player> GetPlayersWithScoreGreaterThan(int minScore)
+        {
+            List<Player> players = new List<Player>();
+
+            foreach (Player player in playerList)
+            {
+                if (player.Score > minScore)
+                {
+                    players.Add(player);
+                }
+            }
+
+            return players;
+        }
     }
 }
