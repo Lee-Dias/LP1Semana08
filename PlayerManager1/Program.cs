@@ -44,10 +44,10 @@ namespace PlayerManager1
                 switch (option)
                 {
                     case "1":
-                        
+                        InsertPlayer();
                         break;
                     case "2":
-                        
+                        ListPlayers(playerList);
                         break;
                     case "3":
                         
@@ -70,6 +70,27 @@ namespace PlayerManager1
         }
 
 
- 
+        private void InsertPlayer()
+        {
+            Console.WriteLine("Insert name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Insert score: ");
+            string score = Console.ReadLine();
+            int numScore = int.Parse(score);
+        }
+
+
+        private static void ListPlayers(IEnumerable<Player> playersToList)
+        {
+            
+            foreach (Player player in playersToList)
+            {
+                Console.WriteLine($"{player.Name} {player.Score}");
+            }
+        }
+
+
+      
     }
 }
